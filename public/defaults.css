@@ -1,1 +1,2 @@
 * { font-family: Ubuntu, sans-serif; }
+:focus { outline: 1px dotted #333; }
