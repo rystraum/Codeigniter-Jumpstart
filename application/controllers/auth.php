@@ -16,7 +16,7 @@ class Auth extends MY_Controller
 	function index()
 	{
 		if ($message = $this->session->flashdata('message')) {
-			$this->load->view('auth/general_message', array('message' => $message));
+			$this->render('auth/general_message', array('message' => $message));
 		} else {
 			redirect('/auth/login/');
 		}
@@ -188,7 +188,7 @@ class Auth extends MY_Controller
 			$data['use_username'] = $use_username;
 			$data['captcha_registration'] = $captcha_registration;
 			$data['use_recaptcha'] = $use_recaptcha;
-			$this->load->view('auth/register_form', $data);
+			$this->render('auth/register_form', $data);
 		}
 	}
 
@@ -223,7 +223,7 @@ class Auth extends MY_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/send_again_form', $data);
+			$this->render('auth/send_again_form', $data);
 		}
 	}
 
@@ -283,7 +283,7 @@ class Auth extends MY_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/forgot_password_form', $data);
+			$this->render('auth/forgot_password_form', $data);
 		}
 	}
 
@@ -329,7 +329,7 @@ class Auth extends MY_Controller
 				$this->_show_message($this->lang->line('auth_message_new_password_failed'));
 			}
 		}
-		$this->load->view('auth/reset_password_form', $data);
+		$this->render('auth/reset_password_form', $data);
 	}
 
 	/**
@@ -360,7 +360,7 @@ class Auth extends MY_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/change_password_form', $data);
+			$this->render('auth/change_password_form', $data);
 		}
 	}
 
@@ -397,7 +397,7 @@ class Auth extends MY_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/change_email_form', $data);
+			$this->render('auth/change_email_form', $data);
 		}
 	}
 
@@ -448,7 +448,7 @@ class Auth extends MY_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/unregister_form', $data);
+			$this->render('auth/unregister_form', $data);
 		}
 	}
 
@@ -479,8 +479,8 @@ class Auth extends MY_Controller
 		$this->email->reply_to($this->config->item('webmaster_email', 'tank_auth'), $this->config->item('website_name', 'tank_auth'));
 		$this->email->to($email);
 		$this->email->subject(sprintf($this->lang->line('auth_subject_'.$type), $this->config->item('website_name', 'tank_auth')));
-		$this->email->message($this->load->view('email/'.$type.'-html', $data, TRUE));
-		$this->email->set_alt_message($this->load->view('email/'.$type.'-txt', $data, TRUE));
+		$this->email->message($this->render('email/'.$type.'-html', $data, TRUE));
+		$this->email->set_alt_message($this->render('email/'.$type.'-txt', $data, TRUE));
 		$this->email->send();
 	}
 
