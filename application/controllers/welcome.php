@@ -2,16 +2,11 @@
 
 class Welcome extends MY_Controller
 {
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
-
-		$this->load->helper('url');
-		$this->load->library('tank_auth');
 	}
 
-	function index()
-	{
+	function index() {
 		if (!$this->tank_auth->is_logged_in()) {
 			redirect('/auth/login/');
 		} else {
