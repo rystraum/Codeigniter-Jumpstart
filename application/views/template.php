@@ -13,7 +13,7 @@
         <div id="topbar">
             <?php
                 if ($this->tank_auth->is_logged_in()):
-                    print anchor('user',$this->tank_auth->get_username());
+                    print "Welcome, " . anchor('user',$this->tank_auth->get_username());
                     print anchor('auth/logout','Logout');
                 else:
                     print anchor('auth/login','Login');
@@ -21,11 +21,10 @@
             ?>
         </div>
         <div id="header">
-            <img src="<?php echo base_url('public/images/logo.png') ?>" alt="logo" id="logo" />
+            <a href="<?php base_url() ?>"><img src="<?php echo base_url('public/images/logo.png') ?>" alt="logo" id="logo" /></a>
             <ul id="nav">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><?php echo anchor('','Home') ?></li>
+                <li><?php echo anchor('contact_us','Contact Us') ?></li>
             </ul>
         </div>
         <div id="content">
