@@ -1,2 +1,8 @@
 * { font-family: Ubuntu, sans-serif; }
 :focus { outline: 1px dotted #333; }
+ul { list-style: none; }
+ul li { float: left; display: block; margin: 0 5px; }
+
+#topbar a { float: right; font-size: 80%; }
+#logo { max-width: 200px; }
+.logo-container { text-align: center; }
