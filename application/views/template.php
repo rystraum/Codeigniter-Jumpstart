@@ -18,7 +18,8 @@
                 <div class="twelvecol last">
                     <?php
                         if ($this->tank_auth->is_logged_in()):
-                            print "Welcome, " . anchor('user',$this->tank_auth->get_username());
+                            print "Welcome " . anchor('user',$this->tank_auth->get_username());
+                            print " | ";
                             print anchor('auth/logout','Logout');
                         else:
                             print anchor('auth/login','Login');

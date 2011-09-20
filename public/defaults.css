@@ -3,6 +3,6 @@
 ul { list-style: none; }
 ul li { float: left; display: block; margin: 0 5px; }
 
-#topbar a { float: right; font-size: 80%; }
+#topbar { font-size: 80%; text-align: right; }
 #logo { max-width: 200px; }
 .logo-container { text-align: center; }
