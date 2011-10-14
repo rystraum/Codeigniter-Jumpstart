@@ -6,3 +6,8 @@ ul li { float: left; display: block; margin: 0 5px; }
 #topbar { font-size: 80%; text-align: right; }
 #logo { max-width: 200px; }
 .logo-container { text-align: center; }
+
+#user-profiles dt, #user-profiles dd { width: 180px; float: left; padding: 0 10px; }
+#user-profiles dt { text-align: right }
+#user-profiles dd { text-align: left }
+#user-profiles { clear: both; width: 400px; }
